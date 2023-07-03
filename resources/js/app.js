@@ -13,12 +13,40 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
 
+
+import * as Vue from 'vue';
+import * as VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent.vue";
 import ExampleComponent from './components/ExampleComponent.vue';
+import TaskListComponent from "./components/TaskListComponent.vue";
+import TaskCreateComponent from "./components/TaskCreateComponent.vue";
+
+const app =createApp({});
+app.use(VueRouter);
+
+export default {
+    install (Vue) {
+      // Vueのインスタンスメソッドとしてプラグインの機能を使えるようにする
+      Vue.prototype.$awesomeVuePlugin = awesomeVuePlugin
+    }
+  }
+
+  const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes: [
+        {
+            path: "/create",
+            name: "task.create",
+            component: TaskCreateComponent,
+        },
+    ],
+});
+
 app.component('example-component', ExampleComponent);
 app.component('header-component', HeaderComponent);
+app.component('tasklist-component', TaskListComponent);
+
 
 /**
  * The following block of code may be used to automatically register your
