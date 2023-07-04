@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::task('task',App\Http\Controllers\TaskController::class)->only(['store','show','edit','update','destroy']);
+Route::resource('tasks',App\Http\Controllers\TaskController::class)->only(['store','show','edit','update','destroy']);
