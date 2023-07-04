@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        {{ task }}
         <div class="row justify-content-center">
             <div class="col-sm-6">
                 <form @submit.prevent="submit">
@@ -24,7 +25,9 @@
 export default {
     data() {
         return {
-            task: {},
+            task: {
+                title: null,
+            },
         };
     },
     methods: {
