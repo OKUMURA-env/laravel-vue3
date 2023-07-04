@@ -15,7 +15,9 @@
                  <th scope="row">{{ task.id }}</th>
                  <td>{{ task.title }}</td>
                  <td>
-                     <button class="btn btn-primary">Show</button>
+                    <router-link v-bind:to="{name: 'task.show', params:{taskId: task.id}}">
+                         <button class="btn btn-primary">Show</button>
+                    </router-link>
                  </td>
                  <td>
                      <button class="btn btn-success">Edit</button>
