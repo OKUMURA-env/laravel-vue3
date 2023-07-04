@@ -4,7 +4,7 @@
             <nav class="navbar navbar-dark">
                 <span class="navbar-brand mb-0 h1">Vue Laravel3</span>
                 <div>
-                    <router-link>
+                    <router-link v-bind:to="{name: 'list'}">
                         <button class="btn btn-success">一覧</button>
                     </router-link>
                      <router-link v-bind:to="{name: 'create'}">
