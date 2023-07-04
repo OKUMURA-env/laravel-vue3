@@ -19,7 +19,7 @@ import router from './router.js';
 
 // import * as VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent.vue";
-import TaskListComponent from "./components/TaskListComponent.vue";
+
 
 
 const app =createApp({
@@ -32,11 +32,10 @@ const app =createApp({
     //     }
     // },
 });
-// app.use(VueRouter);
+
 app.use(router);
 
 app.component('header-component', HeaderComponent);
-app.component('tasklist-component', TaskListComponent);
 
 
 
