@@ -6,6 +6,8 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import * as router from './router.js';
+
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -15,37 +17,27 @@ import { createApp } from 'vue';
 
 
 
-import * as Vue from 'vue';
-import * as VueRouter from 'vue-router';
+// import * as VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent.vue";
-import ExampleComponent from './components/ExampleComponent.vue';
 import TaskListComponent from "./components/TaskListComponent.vue";
-import TaskCreateComponent from "./components/TaskCreateComponent.vue";
 
-const app =createApp({});
-app.use(VueRouter);
 
-export default {
-    install (Vue) {
-      // Vueのインスタンスメソッドとしてプラグインの機能を使えるようにする
-      Vue.prototype.$awesomeVuePlugin = awesomeVuePlugin
-    }
-  }
+const app =createApp({
+    data:() => ({
 
-  const router = VueRouter.createRouter({
-    history: VueRouter.createWebHashHistory(),
-    routes: [
-        {
-            path: "/create",
-            name: "task.create",
-            component: TaskCreateComponent,
-        },
-    ],
+    }),
+    // methods: {
+    //     createTask: function(event){
+    //         console.log('Clicked!');
+    //     }
+    // },
 });
+// app.use(VueRouter);
+app.use(router);
 
-app.component('example-component', ExampleComponent);
 app.component('header-component', HeaderComponent);
 app.component('tasklist-component', TaskListComponent);
+
 
 
 /**
