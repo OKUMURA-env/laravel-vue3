@@ -11,35 +11,9 @@
              </tr>
              </thead>
              <tbody>
-             <tr>
-                 <th scope="row">1</th>
-                 <td>Title1</td>
-                 <td>
-                     <button class="btn btn-primary">Show</button>
-                 </td>
-                 <td>
-                     <button class="btn btn-success">Edit</button>
-                 </td>
-                 <td>
-                     <button class="btn btn-danger">Delete</button>
-                 </td>
-             </tr>
-             <tr>
-                 <th scope="row">2</th>
-                 <td>Title2</td>
-                 <td>
-                     <button class="btn btn-primary">Show</button>
-                 </td>
-                 <td>
-                     <button class="btn btn-success">Edit</button>
-                 </td>
-                 <td>
-                     <button class="btn btn-danger">Delete</button>
-                 </td>
-             </tr>
-             <tr>
-                 <th scope="row">3</th>
-                 <td>Title3</td>
+             <tr v-for="(task,key) in tasks">
+                 <th scope="row">{{ task.id }}</th>
+                 <td>{{ task.title }}</td>
                  <td>
                      <button class="btn btn-primary">Show</button>
                  </td>
@@ -56,5 +30,25 @@
  </template>
  
  <script>
-     export default {}
+     export default {
+     data(){
+            return {
+                tasks:{}
+            }
+     },
+     mounted(){
+        this.getTasks()
+    },
+    methods:{
+        getTasks(){
+            axios.get('/api/tasks')
+            .then(response=>{
+                this.tasks = response.data;
+            }).catch(error=>{
+                console.log(error)
+            })
+        },
+    },
+}
+
  </script>

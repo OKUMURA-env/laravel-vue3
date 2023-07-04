@@ -8,6 +8,17 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $tasks = Task::all(['id', 'title']);
+        return response()->json($tasks);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -17,7 +28,7 @@ class TaskController extends Controller
     {
         $task = Task::create($request->post());
         return response()->json([
-            'task'=>$task
+            'task' => $task
         ]);
     }
 
