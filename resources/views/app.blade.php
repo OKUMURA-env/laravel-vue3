@@ -19,11 +19,7 @@
 <body>
     <div id="app">
         <header-component></header-component>
-        <tasklist-component></tasklist-component>
         <router-view></router-view>
-
-      
-    
 
     </div>
 
