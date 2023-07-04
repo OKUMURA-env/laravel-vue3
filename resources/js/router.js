@@ -4,13 +4,13 @@ import TaskCreateComponent from "./components/TaskCreateComponent.vue";
 
 const routes= [
     {
-        path: "/list",
-        name: "list",
+        path: "/tasks",
+        name: "tasks.list",
         component: TaskListComponent
     },
     {
-        path: "/create",
-        name: "create",
+        path: "/tasks/create",
+        name: "task.create",
         component: TaskCreateComponent
     }
 ]

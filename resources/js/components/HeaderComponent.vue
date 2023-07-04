@@ -4,10 +4,10 @@
             <nav class="navbar navbar-dark">
                 <span class="navbar-brand mb-0 h1">Vue Laravel3</span>
                 <div>
-                    <router-link v-bind:to="{name: 'list'}">
+                    <router-link v-bind:to="{name: 'tasks.list'}">
                         <button class="btn btn-success">一覧</button>
                     </router-link>
-                     <router-link v-bind:to="{name: 'create'}">
+                     <router-link v-bind:to="{name: 'task.create'}">
                         <button class="btn btn-success">新規登録</button>
                     </router-link>
                 </div>
