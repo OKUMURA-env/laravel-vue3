@@ -6,6 +6,8 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import router from './router.js';
+
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,10 +15,29 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+
+// import * as VueRouter from 'vue-router';
+import HeaderComponent from "./components/HeaderComponent.vue";
+
+
+
+const app =createApp({
+    data:() => ({
+
+    }),
+    // methods: {
+    //     createTask: function(event){
+    //         console.log('Clicked!');
+    //     }
+    // },
+});
+
+app.use(router);
+
+app.component('header-component', HeaderComponent);
+
+
 
 /**
  * The following block of code may be used to automatically register your

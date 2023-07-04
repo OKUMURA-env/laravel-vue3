@@ -10,17 +10,19 @@
 
     <title>{{ config('app.name', 'Vue Laravel SPA') }}</title>
 
-    <!-- Styles -->
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    @vite('resources/js/app.js', 'resources/js/bootstrap.js','resources/css/app.css')
+
+    {{--style--}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
     <div id="app">
-        <example-component></example-component>
+        <header-component></header-component>
+        <router-view></router-view>
 
     </div>
-    <!-- Scripts -->
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+
 </body>
 
 </html>
