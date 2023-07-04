@@ -6,7 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
-import * as router from './router.js';
+import router from './router.js';
 
 
 /**
