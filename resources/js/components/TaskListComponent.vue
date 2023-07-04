@@ -20,7 +20,9 @@
                     </router-link>
                  </td>
                  <td>
-                     <button class="btn btn-success">Edit</button>
+                    <router-link v-bind:to="{name: 'task.edit', params:{taskId: task.id}}">
+                         <button class="btn btn-success">Edit</button>
+                    </router-link>
                  </td>
                  <td>
                      <button class="btn btn-danger">Delete</button>
