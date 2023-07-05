@@ -12,6 +12,27 @@
                             id="title"
                             v-model="task.title"
                         />
+                        <label for="decription" class="col-sm-3 col-form-label">タスク内容</label>
+                        <input
+                            type="text"
+                            class="col-sm-9 form-control"
+                            id="title"
+                            v-model="task.description"
+                        />
+                        <label for="person_in_charge" class="col-sm-3 col-form-label">担当者</label>
+                        <input
+                            type="text"
+                            class="col-sm-9 form-control"
+                            id="title"
+                            v-model="task.person_in_charge"
+                        />
+                        <label for="status" class="col-sm-3 col-form-label">状況</label>
+                        <input
+                            type="text"
+                            class="col-sm-9 form-control"
+                            id="title"
+                            v-model="task.status"
+                        />
                     </div>
                     {{ title }}
                     <button type="submit" class="btn btn-primary">作成</button>
@@ -27,6 +48,9 @@ export default {
         return {
             task: {
                 title: null,
+                description: null,
+                person_in_charge: null,
+                status: null,
             },
         };
     },
