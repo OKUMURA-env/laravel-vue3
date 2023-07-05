@@ -1,10 +1,9 @@
 <template>
     <div class="container">
-        {{ tasks }}
         <table class="table table-hover">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col"></th>
                     <th scope="col">タスク名</th>
                     <th scope="col">内容</th>
                     <th scope="col">担当者</th>
@@ -15,8 +14,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(task, key) in tasks">
-                    <th scope="row">{{ task.id }}</th>
+                <tr v-for="(task, key) in tasks" v-bind:style="{ 'background-color': getBackGroundColors(task)}">
+                    <th scope="row"></th>
                     <td>{{ task.title }}</td>
                     <td>{{ task.description }}</td>
                     <td>{{ task.person_in_charge }}</td>
@@ -57,6 +56,8 @@
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue';
+
 export default {
     data() {
         return {
@@ -99,6 +100,20 @@ export default {
                 .catch((error) => {
                     console.log(error);
                 });
+        },
+        getBackGroundColors(task) {
+            console.log(task);
+             if(task.status == "未着手")
+             {
+                return 'yellow'
+             }
+             if(task.status == "着手"){
+                return 'aqua'
+            }
+            if(task.status == "完了"){
+                return 'silver'
+            }
+           
         },
     },
 };
