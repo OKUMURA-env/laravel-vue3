@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all(['id', 'title']);
+        $tasks = Task::all(['id', 'title','description','person_in_charge','status']);
         return response()->json($tasks);
     }
 
