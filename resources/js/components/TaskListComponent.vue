@@ -22,9 +22,7 @@
                     <td>{{ task.person_in_charge }}</td>
                     <td>
                         <select v-model="task.status" v-on:change="updateStatus(task)">
-                            <option value="未着手">未着手</option>
-                            <option value="着手">着手</option>
-                            <option value="完了">完了</option>
+                            <option v-for="(status, key) in statuses" >{{ status.name }}</option>
                         </select>
                     </td>
                     <td>
@@ -73,8 +71,9 @@ export default {
             axios
                 .get("/api/tasks")
                 .then((response) => {
-                    this.tasks = response.data;
-                    console.log(this.tasks);
+                    console.log(response);
+                    this.tasks = response.data.tasks;
+                    this.statuses = response.data.statuses;
                 })
                 .catch((error) => {
                     console.log(error);
