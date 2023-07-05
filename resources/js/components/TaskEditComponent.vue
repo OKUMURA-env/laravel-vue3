@@ -23,12 +23,6 @@
                             class="form-control"
                             v-model="task.person_in_charge"
                         />
-                        <label>状況</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            v-model="task.status"
-                        />
                     </div>
                     <button type="submit" class="btn btn-primary">
                         更新

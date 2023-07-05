@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        {{ tasks }}
         <table class="table table-hover">
             <thead class="thead-light">
                 <tr>
@@ -19,7 +20,11 @@
                     <td>{{ task.title }}</td>
                     <td>{{ task.description }}</td>
                     <td>{{ task.person_in_charge }}</td>
-                    <td>{{ task.status }}</td>
+                    <td>
+                        <select v-model="task.status" v-on:change="updateStatus(task)">
+                            <option v-for="(status, key) in statuses" >{{ status.name }}</option>
+                        </select>
+                    </td>
                     <td>
                         <router-link
                             v-bind:to="{
@@ -66,8 +71,9 @@ export default {
             axios
                 .get("/api/tasks")
                 .then((response) => {
-                    this.tasks = response.data;
-                    console.log(this.tasks);
+                    console.log(response);
+                    this.tasks = response.data.tasks;
+                    this.statuses = response.data.statuses;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -83,6 +89,18 @@ export default {
                     console.log(error);
                 });
         },
+        updateStatus(task) {
+            console.log(task);
+            axios
+                .put("/api/tasks/" + task.id, task)
+                .then((response) => {
+                    this.getTasks();
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
     },
 };
 </script>
+

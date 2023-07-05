@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\TaskStatus;
 
 class TaskController extends Controller
 {
@@ -15,7 +16,11 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::all(['id', 'title','description','person_in_charge','status']);
-        return response()->json($tasks);
+        $statuses = TaskStatus::all();
+        return response()->json([
+            'tasks' => $tasks,
+            'statuses' => $statuses
+        ]);
     }
 
     /**
