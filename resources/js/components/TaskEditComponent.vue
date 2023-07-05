@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h3 class="text-center">Edit Article</h3>
+        <h3 class="text-center">タスクの編集</h3>
         <div class="row">
             <div class="col-md-6">
-                <form>
+                <form @submit.prevent="updateTask">
                     <div class="form-group">
                         <label>Title</label>
                         <input
@@ -13,7 +13,7 @@
                         />
                     </div>
                     <button type="submit" class="btn btn-primary">
-                        Update
+                        更新
                     </button>
                 </form>
             </div>
@@ -33,17 +33,25 @@ export default {
     },
     methods: {
         getTask() {
-            axios
-            .get("/api/tasks/" + this.taskId)
-            .then((res) => {
+            axios.get("/api/tasks/" + this.taskId).then((res) => {
                 console.log(res);
                 this.task = res.data;
             });
-        }
-        
+        },
+        updateTask() {
+            axios
+                .put("/api/tasks/" + this.taskId, this.task)
+                .then((res) => {
+                    console.log(res);
+                    this.$router.push({ name: "tasks.list" });
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
     },
     mounted() {
-    this.getTask();
-  }
+        this.getTask();
+    },
 };
 </script>
