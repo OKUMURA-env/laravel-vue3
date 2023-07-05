@@ -34,7 +34,6 @@
                             v-model="task.status"
                         />
                     </div>
-                    {{ title }}
                     <button type="submit" class="btn btn-primary">作成</button>
                 </form>
             </div>
