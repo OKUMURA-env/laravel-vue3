@@ -5,11 +5,29 @@
             <div class="col-md-6">
                 <form @submit.prevent="updateTask">
                     <div class="form-group">
-                        <label>Title</label>
+                        <label>タスク名</label>
                         <input
                             type="text"
                             class="form-control"
                             v-model="task.title"
+                        />
+                        <label>内容</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            v-model="task.description"
+                        />
+                        <label>担当者</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            v-model="task.person_in_charge"
+                        />
+                        <label>状況</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            v-model="task.status"
                         />
                     </div>
                     <button type="submit" class="btn btn-primary">

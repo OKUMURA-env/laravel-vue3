@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all(['id', 'title']);
+        $tasks = Task::all(['id', 'title','description','person_in_charge','status']);
         return response()->json($tasks);
     }
 
@@ -65,6 +65,9 @@ class TaskController extends Controller
     {
         $task = Task::where("id",$request->id)->update([
             "title" => $request->title,
+            "description" => $request->description,
+            "person_in_charge" => $request->person_in_charge,
+            "status" => $request->status,
         ]);
         return response()->json([
             'task' => $task

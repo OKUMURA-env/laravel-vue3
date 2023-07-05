@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('person_in_charge');
-            $table->string('status');
+            $table->string('status')->default('未着手');
             $table->timestamps();
         });
     }
