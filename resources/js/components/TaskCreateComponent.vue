@@ -26,13 +26,6 @@
                             id="title"
                             v-model="task.person_in_charge"
                         />
-                        <label for="status" class="col-sm-3 col-form-label">状況</label>
-                        <input
-                            type="text"
-                            class="col-sm-9 form-control"
-                            id="title"
-                            v-model="task.status"
-                        />
                     </div>
                     <button type="submit" class="btn btn-primary">作成</button>
                 </form>
@@ -49,7 +42,6 @@ export default {
                 title: null,
                 description: null,
                 person_in_charge: null,
-                status: null,
             },
         };
     },
