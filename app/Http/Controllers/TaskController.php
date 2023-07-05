@@ -65,6 +65,9 @@ class TaskController extends Controller
     {
         $task = Task::where("id",$request->id)->update([
             "title" => $request->title,
+            "description" => $request->description,
+            "person_in_charge" => $request->person_in_charge,
+            "status" => $request->status,
         ]);
         return response()->json([
             'task' => $task
