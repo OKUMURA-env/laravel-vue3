@@ -61,9 +61,14 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $task = Task::where("id",$request->id)->update([
+            "title" => $request->title,
+        ]);
+        return response()->json([
+            'task' => $task
+        ]);
     }
 
     /**
@@ -72,8 +77,8 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        //
+        $task->delete();
     }
 }
